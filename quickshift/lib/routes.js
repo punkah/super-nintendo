@@ -2,7 +2,7 @@
 
 // check for log-in and log-out
 // move user to page
-if(Meteor.isClient){
+//if(Meteor.isClient){
   //  Accounts.onLogin(function() {
   //    FlowRouter.go('recipe-book');
   //  });
@@ -10,7 +10,7 @@ if(Meteor.isClient){
   //  Accounts.onLogout(function() {
   //    FlowRouter.go('home');
   //  });
-}
+//}
 
 
 // when a route is being entered
@@ -31,12 +31,12 @@ FlowRouter.route('/', {
 
     // if user is logged in, send them to the main
     // recipe-book page
-    if(Meteor.userId()){
-      FlowRouter.go('main');
-    }
+    //if(Meteor.userId()){
+    //FlowRouter.go('main');
+    //}
 
     // when we hit the above routepath, use the below template
-    BlazeLayout.render('SplashLayout');
+    //BlazeLayout.render('SplashLayout');
   }
 
 });
