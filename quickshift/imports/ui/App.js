@@ -45,10 +45,10 @@ export default class App extends Component {
   <div className="hero-body">
     <div className="container has-text-centered">
       <p className="title">
-        Title
+        QuickShift
       </p>
       <p className="subtitle">
-        Subtitle
+        Last minute shift rescheduling
       </p>
     </div>
   </div>
