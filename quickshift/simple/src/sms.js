@@ -2,8 +2,7 @@ import request from "request-promise-native";
 
 const sendsms = async () => {
   const response = await request({
-    uri:
-      "https://tango.developersteve.com/redir.php?url=https://tapi.telstra.com/v2/oauth/token",
+    uri: "https://tapi.telstra.com/v2/oauth/token",
     form: {
       client_id: "LjX80rZK5EUBAKWC1MgOxhuTfp0cxqRm",
       client_secret: "oYQtTr446AmO9I7k",
@@ -18,8 +17,7 @@ const sendsms = async () => {
   console.log(jsonResponse.access_token);
 
   await request({
-    uri:
-      "https://tango.developersteve.com/redir.php?url=https://tapi.telstra.com/v2/messages/sms",
+    uri: "https://tapi.telstra.com/v2/messages/sms",
     body: {
       to: "+61478124225",
       validity: "60",
@@ -31,8 +29,7 @@ const sendsms = async () => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jsonResponse.access_token}`,
-      Origin: "https://tango.developersteve.com/redir.php?url="
+      Authorization: `Bearer ${jsonResponse.access_token}`
     },
     json: true
   });
@@ -41,7 +38,7 @@ const sendsms = async () => {
     console.log("waiting...");
     setTimeout(() => {}, 1000);
     const answer = await request({
-      uri: `https://tango.developersteve.com/redir.php?url=https://tapi.telstra.com/v2/messages/sms`,
+      uri: `https://tapi.telstra.com/v2/messages`,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
