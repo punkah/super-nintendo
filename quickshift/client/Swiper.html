@@ -14,6 +14,21 @@
 
   <!-- Demo styles -->
   <style>
+
+    .loader {
+        border: 8px solid #f3f3f3; /* Light grey */
+        border-top: 8px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
     html, body {
       position: relative;
       height: 100%;
@@ -48,6 +63,21 @@
       -webkit-align-items: center;
       align-items: center;
     }
+
+    #first-slide {
+      background-color: #209cee;
+      height: 100%;
+      width: 100%;
+    }
+
+    #loader-container {
+      position: absolute;
+      margin-top: 20%;
+    }
+
+    #logo {
+      margin: 100px;
+    }
   </style>
 </head>
 
@@ -57,38 +87,51 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <div class="contianer">
-          <p>2. Who do you need?</p>
-          <a class="next-button button is-info">Next</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="container">
-
-          <a class="next-button button is-info">Next</a>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="container">
-
-          <a class="next-button button is-info">Next</a>
+        <div id="first-slide" class="container">
+          <img id="logo" src="images/Logo.png">
+          <a class="next-button button is-info">Lodge Job</a>
         </div>
       </div>
 
       <div class="swiper-slide">
         <div class="container">
           <ul>
+
+            <li>
+              <figure class="image is-128x128">
+                <img src="images/03.png">
+              </figure>
+            </li>
+
+            <li>
+              <figure class="image is-128x128">
+                <img src="images/02.png">
+              </figure>
+            </li>
+
+            <li>
             <figure class="image is-128x128">
-              <img src="https://bulma.io/images/placeholders/128x128.png">
+              <img src="images/03.png">
             </figure>
-            <li>Steph Hinds</li>
-            <li>Patrick Mooney</li>
-            <li>Steph Hinds</li>
-            <li>Patrick Mooney</li>
+            </li>
+
+            <li>
+            <figure class="image is-128x128">
+              <img src="images/04.png">
+            </figure>
+            </li>
+
           </ul>
-          <a class="next-button button is-info">Send Requests</a>
+          <button onclick="send()" class="next-button button is-info">Send Requests</button>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div id="loader-container" class="container">
+          <div class="loader"></div>
+        </div>
+        <div class="container">
+          <p id="textdiv">Sending Requests</p>
         </div>
       </div>
     </div>
@@ -108,5 +151,14 @@
       }
     });
   </script>
+
+  <script type="text/javascript">
+    function send() {
+      setInterval(function() {
+        document.getElementById("textdiv").innerHTML = "Joe accepted the job request!";
+      }, 15000);
+    }
+  </script>
+
 </body>
 </html>
